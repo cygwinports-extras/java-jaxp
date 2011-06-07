@@ -1,0 +1,20 @@
+inherit java
+
+DESCRIPTION="Java for XML Processing reference implementation"
+HOMEPAGE="http://jaxp.java.net/"
+SRC_URI="http://download.java.net/jaxp/openjdk/jdk7/jaxp-${PV//./_}.zip"
+SRC_DIR=.
+
+src_compile() {
+	cd ${B}
+	mkdir -p classes
+	cygjavac -d classes -sourcepath ${S}/src $(find ${S}/src -name '*.java')
+	cygjar cf jaxp-${PV}.jar -C classes .
+	cygjavadoc -d docs -sourcepath ${S}/src -subpackages com:javax:org
+}
+
+src_install() {
+	cd ${B}
+	dojar jaxp-${PV}.jar
+	dojavadoc docs
+}

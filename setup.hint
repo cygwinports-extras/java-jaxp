@@ -1,0 +1,8 @@
+category: Java
+requires:
+sdesc: "Java API for XML Processing reference implementation"
+ldesc: "The Java API for XML Processing (JAXP) enables applications to 
+parse, transform, validate and query XML documents using an API that is 
+independent of a particular XML processor implementation. This project 
+develops and evolves the code base for the reference implementation of 
+the JAXP specification."
